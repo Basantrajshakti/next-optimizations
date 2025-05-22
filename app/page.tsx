@@ -2,8 +2,8 @@ import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("./components/Hero"));
 const Features = dynamic(() => import("./components/Features"));
-const Gallery = dynamic(() => import("./components/Gallery"), { ssr: false });
 const FontShowcase = dynamic(() => import("./components/FontShowcase"), { ssr: false });
+const Gallery = dynamic(() => import("./components/Gallery"), { ssr: false });
 
 const features = [
   {
