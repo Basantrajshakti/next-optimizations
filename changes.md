@@ -21,3 +21,9 @@
 - **Where**: `/app/components/ClientFontLoader.tsx`, `/app/layout.tsx`, and `/app/page.tsx`
 - **What**: Added client-side scroll listener to defer loading Google Fonts until user scrolls
 - **Why**: Significantly improves initial page load by delaying 40+ font downloads until after initial interaction
+
+### Change 05
+
+- **Where**: `/app/components/Gallery.tsx`
+- **What**: Added next Image component
+- **Why**: Fixed extremely slow image loading caused by large PNGs + undefined sizing. Now images load faster and are responsive without layout shifts
