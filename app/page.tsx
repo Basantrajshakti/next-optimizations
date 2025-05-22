@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 const Hero = dynamic(() => import("./components/Hero"));
 const Features = dynamic(() => import("./components/Features"));
+const ClientFontLoader = dynamic(() => import("./components/ClientFontLoader"));
 const FontShowcase = dynamic(() => import("./components/FontShowcase"), { ssr: false });
 const Gallery = dynamic(() => import("./components/Gallery"), { ssr: false });
 
@@ -25,6 +26,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Hero />
       <Features features={features} />
+      <ClientFontLoader />
       <FontShowcase />
       <Gallery />
     </div>
