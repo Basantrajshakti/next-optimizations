@@ -81,3 +81,9 @@
 - **Where**: `/app/components/GeneratedImage.tsx`
 - **What**: Replaced native <img> with optimized Next.js <Image /> and added responsive settings
 - **Why**: Enables automatic format optimization, lazy-loading, and improves performance and accessibility
+
+### Change 15
+
+- **Where**: `/app/pricing/page.tsx`
+- **What**: Fixed React key issue, converted pricing layout to responsive grid, and replaced <a> with <Link>
+- **Why**: To improve layout flexibility, navigation performance, and eliminate React warnings
