@@ -66,6 +66,12 @@
 
 ### Change 12
 
-- **Where**: ` /app/demo/page.tsx`
+- **Where**: `/app/demo/page.tsx`
 - **What**: Replaced native <a> tag with Next.js <Link> component for internal route
 - **Why**: Enables fast client-side routing and automatic prefetching as per Next.js best practices
+
+### Change 13
+
+- **Where**: `/app/components/PromptInput.tsx`
+- **What**: Simplified state management, removed redundant hooks, improved accessibility and text colors
+- **Why**: Reduces complexity without losing functionality and improves performance and readability
