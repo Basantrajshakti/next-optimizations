@@ -37,5 +37,11 @@
 ### Change 07
 
 - **Where**: `/app/blog/page.tsx`, `/app/blog/[slug]/page.tsx` and `/app/constants/blogPosts.tsx`
-- **What**: Constants extrated and dynamic route created
+- **What**: Constants extracted and dynamic route created
 - **Why**: To improve visual presentation and provide a complete blog post experience
+
+### Change 08
+
+- **Where**: `/app/components/FontShowcase.tsx` and `/app/constants/fonts.ts`
+- **What**: Constants extracted
+- **Why**: Better management of constants
