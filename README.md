@@ -116,8 +116,14 @@
 - **What**: Files compression and conversions
 - **Why**: To reduce file sizes and optimized loading with better SEO (webp are recommended over PNGs)
 
-### Change 19
+### Change 20
 
 - **Where**: `/app/components/AppBar.tsx` and `/app/tutorials/page.tsx`
 - **What**: Tutorials made visible and font sizings adjusted
 - **Why**: For better accessibility of existing sections and responsive UI
+
+### Change 21
+
+- **Where**: `/public`
+- **What**: File cleaning
+- **Why**: Unnecessary files cleaned for cleaned bundle
