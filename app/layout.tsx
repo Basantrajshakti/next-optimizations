@@ -24,9 +24,9 @@ export default function RootLayout({
           rel="stylesheet"
         /> */}
       </head>
-      <body className="min-h-screen bg-white dark:bg-gray-900 mt-12">
+      <body className="min-h-screen bg-white dark:bg-gray-900">
         <AppBar />
-        <main className="flex min-h-screen flex-col ">{children}</main>
+        <main className="flex min-h-screen flex-col">{children}</main>
       </body>
     </html>
   );

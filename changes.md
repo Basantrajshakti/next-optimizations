@@ -87,3 +87,9 @@
 - **Where**: `/app/pricing/page.tsx`
 - **What**: Fixed React key issue, converted pricing layout to responsive grid, and replaced <a> with <Link>
 - **Why**: To improve layout flexibility, navigation performance, and eliminate React warnings
+
+### Change 16
+
+- **Where**: Multiple pages (index)
+- **What**: Updated margin top and Header menu background
+- **Why**: For better readeability.
