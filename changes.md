@@ -51,3 +51,9 @@
 - **Where**: `/app/loading.tsx`
 - **What**: Spinner added
 - **Why**: Better visual and interaction while route change
+
+### Change 10
+
+- **Where**: `/app/components/AppBar.tsx` and `/app/components/BlogPostCard.tsx`
+- **What**: Set prefetch to false
+- **Why**: Unnecessary links need not to be fetched
