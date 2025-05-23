@@ -57,3 +57,9 @@
 - **Where**: `/app/components/AppBar.tsx` and `/app/components/BlogPostCard.tsx`
 - **What**: Set prefetch to false
 - **Why**: Unnecessary links need not to be fetched
+
+### Change 11
+
+- **Where**: `/app/components/Newsletter.tsx`
+- **What**: Added form validation, controlled input, submission handling, and feedback message
+- **Why**: Improves accessibility, UX, and prevents empty/invalid form submissions
