@@ -151,3 +151,9 @@
 - **Where**: `/app/components/Hero.tsx` and `/public/`
 - **What**: Video renamed to 'hero-bg'
 - **Why**: Meaning naming helps developer for better understandings
+
+### Change 26
+
+- **Where**: `/app/demo/page.tsx`
+- **What**: Pexels api connected
+- **Why**: To simulate real work of AI

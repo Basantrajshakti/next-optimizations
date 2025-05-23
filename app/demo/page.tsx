@@ -1,24 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import PromptInput from "../components/PromptInput";
 import GeneratedImage from "../components/GeneratedImage";
 import Link from "next/link";
+import { createClient } from "pexels";
+
+const client = createClient(process.env.NEXT_PUBLIC_PEXELS_API_KEY!);
 
 export default function Demo() {
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
-  const handleGenerate = async () => {
+  const handleGenerate = useCallback(async () => {
     if (!prompt) return;
 
     setIsGenerating(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setGeneratedImage("/11.webp");
-    setIsGenerating(false);
-  };
+
+    try {
+      const response = await client.photos.search({
+        query: prompt,
+        per_page: 1,
+      });
+
+      if ("error" in response || !response.photos.length) {
+        throw new Error("No results found");
+      }
+
+      const imageUrl = response.photos[0].src.large2x;
+      setGeneratedImage(imageUrl);
+    } catch (err) {
+      console.error("Failed to generate image:", err);
+      setGeneratedImage(null);
+    } finally {
+      setIsGenerating(false);
+    }
+  }, [prompt]);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 mt-12">
