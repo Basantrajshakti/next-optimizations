@@ -27,3 +27,9 @@
 - **Where**: `/app/components/Gallery.tsx`
 - **What**: Added next Image component
 - **Why**: Fixed extremely slow image loading caused by large PNGs + undefined sizing. Now images load faster and are responsive without layout shifts
+
+### Change 06
+
+- **Where**: `/app/components/BlogPostCard.tsx`
+- **What**: Added next Image component
+- **Why**: To improve performance via lazy-loading, format optimization, and layout stability

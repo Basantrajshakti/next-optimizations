@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Hero = dynamic(() => import("./components/Hero"));
+import Hero from "./components/Hero";
 const Features = dynamic(() => import("./components/Features"));
 const ClientFontLoader = dynamic(() => import("./components/ClientFontLoader"));
 const FontShowcase = dynamic(() => import("./components/FontShowcase"), { ssr: false });
