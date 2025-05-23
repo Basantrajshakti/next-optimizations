@@ -8,7 +8,7 @@ export default function GeneratedImage({ imageUrl }: GeneratedImageProps) {
   return (
     <div className="mt-8">
       <div className="relative aspect-square w-full overflow-hidden rounded-lg">
-        <img src={imageUrl} alt="Generated artwork" className="object-cover" />
+        <Image src={imageUrl} alt="Generated artwork" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
       </div>
     </div>
   );

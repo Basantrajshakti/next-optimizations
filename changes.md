@@ -75,3 +75,9 @@
 - **Where**: `/app/components/PromptInput.tsx`
 - **What**: Simplified state management, removed redundant hooks, improved accessibility and text colors
 - **Why**: Reduces complexity without losing functionality and improves performance and readability
+
+### Change 14
+
+- **Where**: `/app/components/GeneratedImage.tsx`
+- **What**: Replaced native <img> with optimized Next.js <Image /> and added responsive settings
+- **Why**: Enables automatic format optimization, lazy-loading, and improves performance and accessibility
