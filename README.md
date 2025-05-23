@@ -109,3 +109,9 @@
 - **Where**: `/app/components/Newsletter.tsx`, `/app/components/PromptInput.tsx` and `/app/gallery/page.tsx`
 - **What**: Extracted buttons
 - **Why**: For better code management
+
+### Change 19
+
+- **Where**: `/app/components/Gallery.tsx`, `/app/demo/page.tsx`, `/app/constants/blogPosts.tsx` and `/public/[all-images and videos]`
+- **What**: Files compression and conversions
+- **Why**: To reduce file sizes and optimized loading with better SEO (webp are recommended over PNGs)

@@ -10,7 +10,7 @@ export default function Gallery() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((num) => (
             <div key={num} className="relative w-auto h-64 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <Image src={`/${num}.png`} alt={`Gallery Image ${num}`} height={300} width={300} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              <Image src={`/${num}.webp`} alt={`Gallery Image ${num}`} height={300} width={300} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
             </div>
           ))}
         </div>
