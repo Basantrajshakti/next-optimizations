@@ -45,3 +45,9 @@
 - **Where**: `/app/components/FontShowcase.tsx` and `/app/constants/fonts.ts`
 - **What**: Constants extracted
 - **Why**: Better management of constants
+
+### Change 09
+
+- **Where**: `/app/loading.tsx`
+- **What**: Spinner added
+- **Why**: Better visual and interaction while route change
