@@ -33,3 +33,9 @@
 - **Where**: `/app/components/BlogPostCard.tsx`
 - **What**: Added next Image component
 - **Why**: To improve performance via lazy-loading, format optimization, and layout stability
+
+### Change 07
+
+- **Where**: `/app/blog/page.tsx`, `/app/blog/[slug]/page.tsx` and `/app/constants/blogPosts.tsx`
+- **What**: Constants extrated and dynamic route created
+- **Why**: To improve visual presentation and provide a complete blog post experience
