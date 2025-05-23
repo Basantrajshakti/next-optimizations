@@ -145,3 +145,9 @@
 - **Where**: `/app/pricing/page.tsx`, `/app/tutorials/page.tsx`, and `/public/`
 - **What**: Unnecessary links prefetch disabled and `/2.mp4` file compressed (57mb->7.3mb)
 - **Why**: No meaning of prefetching pages if it doesn't exists and video was too large to be loaded on hero section as background.
+
+### Change 25
+
+- **Where**: `/app/components/Hero.tsx` and `/public/`
+- **What**: Video renamed to 'hero-bg'
+- **Why**: Meaning naming helps developer for better understandings
