@@ -127,3 +127,9 @@
 - **Where**: `/public`
 - **What**: File cleaning
 - **Why**: Unnecessary files cleaned for cleaned bundle
+
+### Change 22
+
+- **Where**: `/next.config` and `package.json`
+- **What**: remotePatterns added and sharp installed
+- **Why**: domains are deprecated and sharp for better auto image optimizations
