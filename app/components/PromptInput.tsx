@@ -1,3 +1,5 @@
+import Button from "./UI/Button";
+
 interface PromptInputProps {
   prompt: string;
   setPrompt: (prompt: string) => void;
@@ -35,14 +37,7 @@ export default function PromptInput({ prompt, setPrompt, isGenerating, onGenerat
         aria-label="Prompt for image generation"
       />
       <div className="text-sm text-gray-500 mt-1">Characters: {charCount}</div>
-      <button
-        onClick={handleGenerate}
-        disabled={isButtonDisabled}
-        className="w-full mt-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-busy={isGenerating}
-      >
-        {isGenerating ? "Generating..." : "Generate Art"}
-      </button>
+      <Button text={isGenerating ? "Generating..." : "Generate Art"} onClick={handleGenerate} disabled={isButtonDisabled} type="button" className="w-full mt-4 py-3" aria-busy={isGenerating} />
     </div>
   );
 }

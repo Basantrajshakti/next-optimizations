@@ -92,10 +92,16 @@
 
 - **Where**: Multiple pages (index)
 - **What**: Updated margin top and Header menu background
-- **Why**: For better readeability.
+- **Why**: For better readeability
 
 ### Change 17
 
 - **Where**: `/app/components/ImageCard.tsx` and `/Gallery.tsx`
 - **What**: Added infinite scroll, image skeleton loading, and stabilized pagination with image cover fixes and LCP reduction
-- **Why**: Prevents unnecessary image loading and ensures smooth, responsive UI for each card with optimized image loading.
+- **Why**: Prevents unnecessary image loading and ensures smooth, responsive UI for each card with optimized image loading
+
+### Change 18
+
+- **Where**: `/app/components/Newsletter.tsx`, `/app/components/PromptInput.tsx` and `/app/gallery/page.tsx`
+- **What**: Extracted buttons
+- **Why**: For better code management

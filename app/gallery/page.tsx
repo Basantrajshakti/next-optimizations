@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { createClient } from "pexels";
 import ImageCard from "../components/ImageCard";
+import Button from "../components/UI/Button";
 
 interface Photo {
   id: number;
@@ -92,9 +93,7 @@ export default function Gallery() {
           <div className=" bg-gray-50 dark:bg-gray-900 py-12 flex items-center justify-center">
             <div className="text-center">
               <p className="text-red-500 mb-4">Error: {error}</p>
-              <button onClick={() => location.reload()} className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                Try Again
-              </button>
+              <Button onClick={() => location.reload()} text="Try Again" />
             </div>
           </div>
         ) : (

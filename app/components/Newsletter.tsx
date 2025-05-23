@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Button from "./UI/Button";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -31,9 +32,7 @@ export default function Newsletter() {
           aria-label="Email address"
           className="flex-1 px-4 py-2 rounded-lg border focus:ring-2 focus:ring-purple-500 focus:border-transparent text-black"
         />
-        <button type="submit" className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-          Subscribe
-        </button>
+        <Button text="Subscribe" type="submit" />
       </form>
 
       <p className={`mt-4 text-green-600 font-medium animate-pulse ${submitted ? "visible" : "invisible"}`}>✅ Subscribed! Thank you.</p>
