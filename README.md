@@ -1,37 +1,111 @@
 # Frontend Assignment: Landing site Optimization
 
-## Task
+## Task completed- Required changes are listed below:
 
-You're given a simple landing website. Written in Next.js, using TypeScript.
+### Change 01
 
-The website has:
+- **Where**: `/postcss.config.mjs` and `/next.config.js` file
+- **What**: Removed `/postcss.config.mjs` and `/next.config.js`
+- **Why**: To eliminate redundant config, avoid build conflicts, and ensure Tailwind + Autoprefixer are properly applied
 
-- landing page
-- demo page
-- blog
-- gallery
-- pricing
+### Change 02
 
-Your task is to **optimize performance and fix any issues you find** while preserving the functionality. You are free to identify any bugs through out the project and apply any optimizations you see fit
+- **Where**: `/app/page.tsx`
+- **What**: Applied dynamic imports for Hero, Features, Gallery, and FontShowcase
+- **Why**: To reduce initial JavaScript bundle and improve First Contentful Paint (FCP) and overall performance
 
----
+### Change 03
 
-## Submission
+- **Where**: `/public/7670835-uhd_3840_2160_30fps.mp4`
+- **What**: Renamed to `/2.mp4`
+- **Why**: To prevent error for Hero section
 
-Please submit a GitHub repo or ZIP file with:
+### Change 04
 
-- Your updated working code (npm install; npm run build; npm start)
-- An accompanying PDF file or readme explaining all the changes you did in Where/What/Why format
+- **Where**: `/app/components/ClientFontLoader.tsx`, `/app/layout.tsx`, and `/app/page.tsx`
+- **What**: Added client-side scroll listener to defer loading Google Fonts until user scrolls
+- **Why**: Significantly improves initial page load by delaying 40+ font downloads until after initial interaction
 
-**[Bonus]** Deploy the site to a free platform (e.g., Netlify, Vercel, Render) and share the live link.
+### Change 05
 
-## Example of Changes Documentation
+- **Where**: `/app/components/Gallery.tsx`
+- **What**: Added next Image component
+- **Why**: Fixed extremely slow image loading caused by large PNGs + undefined sizing. Now images load faster and are responsive without layout shifts
 
-### Where/What/Why Format Example:
+### Change 06
 
-1. **Where**: `src/pages/blog/[slug].tsx`
-2. **What**: Added dynamic imports for blog content
-3. **Why**: To reduce initial bundle size and improve First Contentful Paint (FCP)
-4. **Reference**: Documentation URL (optional)
+- **Where**: `/app/components/BlogPostCard.tsx`
+- **What**: Added next Image component
+- **Why**: To improve performance via lazy-loading, format optimization, and layout stability
 
----
+### Change 07
+
+- **Where**: `/app/blog/page.tsx`, `/app/blog/[slug]/page.tsx` and `/app/constants/blogPosts.tsx`
+- **What**: Constants extracted and dynamic route created
+- **Why**: To improve visual presentation and provide a complete blog post experience
+
+### Change 08
+
+- **Where**: `/app/components/FontShowcase.tsx` and `/app/constants/fonts.ts`
+- **What**: Constants extracted
+- **Why**: Better management of constants
+
+### Change 09
+
+- **Where**: `/app/loading.tsx`
+- **What**: Spinner added
+- **Why**: Better visual and interaction while route change
+
+### Change 10
+
+- **Where**: `/app/components/AppBar.tsx` and `/app/components/BlogPostCard.tsx`
+- **What**: Set prefetch to false
+- **Why**: Unnecessary links need not to be fetched
+
+### Change 11
+
+- **Where**: `/app/components/Newsletter.tsx`
+- **What**: Added form validation, controlled input, submission handling, and feedback message
+- **Why**: Improves accessibility, UX, and prevents empty/invalid form submissions
+
+### Change 12
+
+- **Where**: `/app/demo/page.tsx`
+- **What**: Replaced native `<a>` tag with Next.js `<Link>` component for internal route
+- **Why**: Enables fast client-side routing and automatic prefetching as per Next.js best practices
+
+### Change 13
+
+- **Where**: `/app/components/PromptInput.tsx`
+- **What**: Simplified state management, removed redundant hooks, improved accessibility and text colors
+- **Why**: Reduces complexity without losing functionality and improves performance and readability
+
+### Change 14
+
+- **Where**: `/app/components/GeneratedImage.tsx`
+- **What**: Replaced native `<img>` with optimized Next.js <Image /> and added responsive settings
+- **Why**: Enables automatic format optimization, lazy-loading, and improves performance and accessibility
+
+### Change 15
+
+- **Where**: `/app/pricing/page.tsx`
+- **What**: Fixed React key issue, converted pricing layout to responsive grid, and replaced `<a>` with `<Link>`
+- **Why**: To improve layout flexibility, navigation performance, and eliminate React warnings
+
+### Change 16
+
+- **Where**: Multiple pages (index)
+- **What**: Updated margin top and Header menu background
+- **Why**: For better readeability
+
+### Change 17
+
+- **Where**: `/app/components/ImageCard.tsx` and `/Gallery.tsx`
+- **What**: Added infinite scroll, image skeleton loading, and stabilized pagination with image cover fixes and LCP reduction
+- **Why**: Prevents unnecessary image loading and ensures smooth, responsive UI for each card with optimized image loading
+
+### Change 18
+
+- **Where**: `/app/components/Newsletter.tsx`, `/app/components/PromptInput.tsx` and `/app/gallery/page.tsx`
+- **What**: Extracted buttons
+- **Why**: For better code management

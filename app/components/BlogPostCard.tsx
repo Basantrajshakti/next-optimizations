@@ -30,7 +30,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
         <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
         <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
-        <Link href={post.link} prefetch={false} className="inline-flex items-center text-purple-600 hover:text-purple-700">
+        <Link href={post.link} prefetch={false} scroll={false} className="inline-flex items-center text-purple-600 hover:text-purple-700">
           Read More
           <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

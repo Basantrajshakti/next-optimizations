@@ -15,7 +15,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) return notFound();
 
   return (
-    <div className="min-h-screen py-12 px-4 bg-white dark:bg-gray-900 mt-12 ">
+    <div className="min-h-screen pb-12 pt-24 px-4 bg-white dark:bg-gray-900  ">
       <div className="max-w-3xl mx-auto">
         {/* Blog Image */}
         <div className="relative w-full h-64 sm:h-96 mb-8 overflow-hidden rounded-lg shadow-lg">
