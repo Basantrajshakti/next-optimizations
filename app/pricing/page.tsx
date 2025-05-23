@@ -29,6 +29,7 @@ export default function Pricing() {
               </ul>
               <Link
                 href={plan.ctaLink}
+                prefetch={false}
                 className={`block text-center py-3 px-6 rounded-lg font-medium transition-colors ${
                   plan.popular ? "bg-purple-600 text-white hover:bg-purple-700" : "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600"
                 }`}

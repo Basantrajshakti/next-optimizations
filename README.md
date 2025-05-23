@@ -139,3 +139,9 @@
 - **Where**: `/app/blog/[slug]/page.tsx`
 - **What**: Added skeleton loading
 - **Why**: For better UX
+
+### Change 24
+
+- **Where**: `/app/pricing/page.tsx`, `/app/tutorials/page.tsx`, and `/public/`
+- **What**: Unnecessary links prefetch disabled and `/2.mp4` file compressed (57mb->7.3mb)
+- **Why**: No meaning of prefetching pages if it doesn't exists and video was too large to be loaded on hero section as background.

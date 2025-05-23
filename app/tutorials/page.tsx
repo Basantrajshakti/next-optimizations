@@ -17,7 +17,7 @@ export default function Tutorials() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{tutorial.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{tutorial.description}</p>
-                <Link href={tutorial.link} className="inline-flex items-center text-purple-600 hover:text-purple-700">
+                <Link prefetch={false} href={tutorial.link} className="inline-flex items-center text-purple-600 hover:text-purple-700">
                   Start Tutorial
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

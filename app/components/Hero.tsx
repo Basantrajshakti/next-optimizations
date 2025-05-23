@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <video preload="none" autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover">
+      <video preload="auto" autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover">
         <source src="/2.mp4" type="video/mp4" />
       </video>
 
