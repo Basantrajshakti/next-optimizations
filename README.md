@@ -133,3 +133,9 @@
 - **Where**: `/next.config` and `package.json`
 - **What**: remotePatterns added and sharp installed
 - **Why**: domains are deprecated and sharp for better auto image optimizations
+
+### Change 23
+
+- **Where**: `/app/blog/[slug]/page.tsx`
+- **What**: Added skeleton loading
+- **Why**: For better UX

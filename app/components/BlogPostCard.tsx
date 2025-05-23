@@ -19,8 +19,8 @@ interface BlogPostCardProps {
 export default function BlogPostCard({ post }: BlogPostCardProps) {
   return (
     <article className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-      <div className="relative w-full h-60">
-        <Image src={post.image} alt={post.title} fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 33vw" />
+      <div className="relative w-full h-60 bg-gray-200 dark:bg-gray-700">
+        <Image src={post.image} alt={post.title} fill className="object-cover object-center " sizes="(max-width: 768px) 100vw, 33vw" />
       </div>
       <div className="p-6">
         <div className="flex items-center mb-4">
