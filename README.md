@@ -115,3 +115,9 @@
 - **Where**: `/app/components/Gallery.tsx`, `/app/demo/page.tsx`, `/app/constants/blogPosts.tsx` and `/public/[all-images and videos]`
 - **What**: Files compression and conversions
 - **Why**: To reduce file sizes and optimized loading with better SEO (webp are recommended over PNGs)
+
+### Change 19
+
+- **Where**: `/app/components/AppBar.tsx` and `/app/tutorials/page.tsx`
+- **What**: Tutorials made visible and font sizings adjusted
+- **Why**: For better accessibility of existing sections and responsive UI
