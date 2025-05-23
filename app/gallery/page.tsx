@@ -1,124 +1,118 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { createClient } from "pexels";
+import ImageCard from "../components/ImageCard";
 
 interface Photo {
   id: number;
   title: string;
   description: string;
   image: string;
-  tags: string[];
+  alt: string;
   photographer: string;
   photographerUrl: string;
 }
 
+const PER_PAGE = 12;
+const client = createClient(process.env.NEXT_PUBLIC_PEXELS_API_KEY!);
+
 export default function Gallery() {
   const [photos, setPhotos] = useState<Photo[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const observerRef = useRef<HTMLDivElement | null>(null);
+  const hasNextPage = useRef(true);
+
+  const fetchPhotos = async () => {
+    if (loading || !hasNextPage.current || error) return;
+
+    setLoading(true);
+    try {
+      const response = await client.photos.search({
+        query: "ai generated art",
+        per_page: PER_PAGE,
+        page,
+      });
+
+      if ("error" in response) throw new Error(response.error);
+
+      if (response.photos.length < PER_PAGE) {
+        hasNextPage.current = false;
+      }
+
+      const newPhotos = response.photos.map((photo) => ({
+        id: photo.id,
+        title: photo.alt || "Untitled",
+        description: photo.alt || "AI generated artwork",
+        image: photo.src.large2x,
+        alt: photo.alt || "AI artwork",
+        photographer: photo.photographer,
+        photographerUrl: photo.photographer_url,
+      }));
+
+      setPhotos((prev) => [...prev, ...newPhotos]);
+      setPage((prev) => prev + 1);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchPhotos = async () => {
-      console.log(
-        "fetching photos with API key",
-        process.env.NEXT_PUBLIC_PEXELS_API_KEY
-      );
-      try {
-        const client = createClient(
-          process.env.NEXT_PUBLIC_PEXELS_API_KEY || ""
-        );
-        const response = await client.photos.search({
-          query: "ai generated art",
-          per_page: 80,
-        });
-
-        if ("error" in response) {
-          throw new Error(response.error);
-        }
-
-        const formattedPhotos = response.photos.map((photo) => ({
-          id: photo.id,
-          title: photo.alt || "Untitled",
-          description: photo.alt || "No description available",
-          image: photo.src.large2x,
-          tags: ["Abstract", "Digital", "Art"],
-          photographer: photo.photographer,
-          photographerUrl: photo.photographer_url,
-        }));
-
-        setPhotos(formattedPhotos);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPhotos();
+    fetchPhotos(); // initial load
   }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-300">
-            Loading gallery...
-          </p>
-        </div>
-      </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading) {
+          fetchPhotos();
+        }
+      },
+      { rootMargin: "200px" }
     );
-  }
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-red-500 mb-4">Error: {error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-          >
-            Try Again
-          </button>
-        </div>
-      </div>
-    );
-  }
+    const el = observerRef.current;
+    if (el) observer.observe(el);
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, [fetchPhotos, loading]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+    <section className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-24 pb-12">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-center mb-4">Gallery</h1>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
-          Explore our collection of AI-generated artwork
-        </p>
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-12">Explore our collection of AI-generated artwork</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {photos.map((photo) => (
-            <div
-              key={photo.id}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-transform hover:scale-105"
-            >
-              <div className="relative aspect-square">
-                <img
-                  src={photo.image}
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{photo.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {photo.description}
-                </p>
-              </div>
+        {error ? (
+          <div className=" bg-gray-50 dark:bg-gray-900 py-12 flex items-center justify-center">
+            <div className="text-center">
+              <p className="text-red-500 mb-4">Error: {error}</p>
+              <button onClick={() => location.reload()} className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                Try Again
+              </button>
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+            {photos.map((photo, i) => (
+              <ImageCard key={photo.id} photo={photo} priority={i === 0} />
+            ))}
+          </div>
+        )}
+
+        {loading && !error && (
+          <div className="mt-10 flex justify-center">
+            <div className="w-10 h-10 border-4 border-purple-500 border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
+
+        <div ref={observerRef} className="h-10" />
       </div>
-    </div>
+    </section>
   );
 }
