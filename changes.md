@@ -63,3 +63,9 @@
 - **Where**: `/app/components/Newsletter.tsx`
 - **What**: Added form validation, controlled input, submission handling, and feedback message
 - **Why**: Improves accessibility, UX, and prevents empty/invalid form submissions
+
+### Change 12
+
+- **Where**: ` /app/demo/page.tsx`
+- **What**: Replaced native <a> tag with Next.js <Link> component for internal route
+- **Why**: Enables fast client-side routing and automatic prefetching as per Next.js best practices
