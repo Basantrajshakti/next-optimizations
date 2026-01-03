@@ -1,6 +1,4 @@
-# Frontend Assignment: Landing site Optimization
-
-## Task completed- Required changes are listed below:
+# Landing site Optimization
 
 ### Change 01
 
